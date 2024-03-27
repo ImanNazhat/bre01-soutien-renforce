@@ -22,5 +22,8 @@ class Router
                     $adminController->AdminMenu();
                 }
         }
+         else {
+                    $menuController->home();
+                }
 	}
 }
