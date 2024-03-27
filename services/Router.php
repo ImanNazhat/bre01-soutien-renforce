@@ -21,6 +21,39 @@ class Router
                     
                     $adminController->AdminMenu();
                 }
+                
+                else if($get["route"] === "admin-creer-menu"){
+                    
+                    $menuController->create();
+                }
+                else if($get["route"] === "admin-check-creer-menu"){
+                    
+                    $menuController->checkCreate();
+                }
+                else if($get["route"] === "admin-modifier-menu"){
+                    
+                    if (isset($get["menu_id"])) {
+                        
+                    $menuId = (int)$get["menu_id"];
+                    $menuController->edit($menuId);
+                    }
+                }
+                else if($get["route"] === "admin-check-modifier-menu"){
+                    
+                    $menuController->checkEdit();
+                }
+                else if($get["route"] === "admin-supprimer-menu"){
+                    
+                    if (isset($get["menu_id"])) {
+                        
+                    $menuId = (int)$get["menu_id"];
+                    $menuController->delete($menuId);
+                    }
+                }
+                else if($get["route"] === "admin-check-supprimer-menu"){
+                    
+                    $menuController->checkDelete();
+                }
         }
          else {
                     $menuController->home();
