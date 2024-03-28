@@ -26,19 +26,19 @@ class MenuController extends AbstractController
                         $this->render("home.html.twig" , []);
                     }
                     public function create() : void{
-                        echo "méthode create";
+                        $this->render("admin/create-menu.html.twig" , []);
                     }
                     public function checkCreate() : void{
                         echo "méthode checkCreate";
                     }
                     public function edit(int $menuId) : void{
-                        echo "méthode edit";
+                        $this->render("admin/edit-menu.html.twig" , []);
                     }
                     public function checkEdit() : void{
                         echo "méthode checkEdit";
                     }
                     public function delete(int $menuId) : void{
-                        echo "méthode delete";
+                        $this->render("admin/delete-menu.html.twig" , []);
                     }
                     public function checkDelete() : void{
                         echo "méthode checkDelete";
