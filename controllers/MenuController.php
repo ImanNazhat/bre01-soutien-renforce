@@ -29,7 +29,18 @@ class MenuController extends AbstractController
                         $this->render("admin/create-menu.html.twig" , []);
                     }
                     public function checkCreate() : void{
-                        echo "méthode checkCreate";
+                        
+                        if(isset($_POST["name"]) && isset($_POST["Description"]) && isset($_POST["image-url"]) && isset($_POST["select"]))
+                            {
+                                $name = $_POST["name"];
+                                $description = $_POST["Description"];
+                                $imageUrl = $_POST["image-url"];
+                                $select = $_POST["select"];
+                                
+                                $menu = new Menu($name, $description, $imageUrl,$select);
+                                
+                                var_dump($menu);
+                            }
                     }
                     public function edit(int $menuId) : void{
                         $this->render("admin/edit-menu.html.twig" , []);
