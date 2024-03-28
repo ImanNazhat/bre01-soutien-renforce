@@ -37,6 +37,10 @@ class Router
                     $menuId = (int)$get["menu_id"];
                     $menuController->edit($menuId);
                     }
+                    else
+                 {
+                     echo "menu_id n'existes pas pour la route admin-modifier-menu";
+                 }
                 }
                 else if($get["route"] === "admin-check-modifier-menu"){
                     
@@ -49,6 +53,10 @@ class Router
                     $menuId = (int)$get["menu_id"];
                     $menuController->delete($menuId);
                     }
+                    else
+                 {
+                     echo "menu_id n'existes pas pour la route admin-supprimer-menu";
+                 }
                 }
                 else if($get["route"] === "admin-check-supprimer-menu"){
                     
