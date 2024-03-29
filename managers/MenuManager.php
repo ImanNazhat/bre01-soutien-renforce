@@ -55,4 +55,20 @@ class MenuManager extends AbstractManager
         return $vegetarians;
        
     }
+    public function create(Menu $menu) : Menu 
+    {
+        $query = $this->db->prepare('INSERT INTO dishes (id, name, description, picture_url, vegetarian) VALUES (NULL, :name,:description, :picture_url, :vegetarian)');
+        $parameters = [
+            "name" => $menu->getName(),
+            "description" => $menu->getDiscription(),
+            "picture_url" => $menu->getPictureUrl(),
+            "vegetarian" => $menu->getVegetarian()
+        ];
+
+        $query->execute($parameters);
+
+        $menu->setId($this->db->lastInsertId());
+
+        return $menu;
+    }
 }
